@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -30,48 +29,159 @@
     </div>
   </section>
 
-  <!-- ========== 页面1：测试介绍 ========== -->
+  <!-- ========== 页面1：测试介绍（增强版） ========== -->
   <section id="intro" class="page">
     <div class="intro-container">
-      <div class="intro-badge">🧬 搞钱基因测试</div>
-      <h1 class="intro-title">
-        <span class="gold-text">搞钱基因</span>
-        <br>深度解码
-      </h1>
-      <p class="intro-subtitle">从5个核心维度，揭示你的财富底层密码</p>
+      <!-- Hero区域 -->
+      <div class="intro-hero">
+        <div class="intro-badge">🧬 搞钱基因测试</div>
+        <div class="hero-dna-icon">🧬</div>
+        <h1 class="intro-title">
+          <span class="gold-text">搞钱基因</span>
+          <br>深度解码
+        </h1>
+        <p class="intro-subtitle">从5个核心维度，揭示你的财富底层密码</p>
 
-      <div class="intro-dimensions">
-        <div class="dim-tag"><span class="dim-icon">🎯</span>风险偏好</div>
-        <div class="dim-tag"><span class="dim-icon">⚡</span>执行力</div>
-        <div class="dim-tag"><span class="dim-icon">🧠</span>认知水平</div>
-        <div class="dim-tag"><span class="dim-icon">🤝</span>人脉资源</div>
-        <div class="dim-tag"><span class="dim-icon">💰</span>财务意识</div>
-      </div>
-
-      <div class="intro-stats">
-        <div class="stat-item">
-          <div class="stat-number">30</div>
-          <div class="stat-label">道测试题</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-number">5</div>
-          <div class="stat-label">分钟完成</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-number">5</div>
-          <div class="stat-label">大维度</div>
+        <div class="intro-stats">
+          <div class="stat-item">
+            <div class="stat-number">30</div>
+            <div class="stat-label">道测试题</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">5</div>
+            <div class="stat-label">分钟完成</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">11</div>
+            <div class="stat-label">种人格类型</div>
+          </div>
         </div>
       </div>
 
-      <button id="startBtn" class="btn-start" onclick="app.startQuiz()">
-        <span>开始测试</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </button>
-      <p class="intro-note">已有 <span class="gold-text">12,847</span> 人完成测试</p>
+      <!-- 测试是什么 -->
+      <div class="intro-section">
+        <div class="section-icon">💡</div>
+        <h2 class="section-title">这个测试是什么？</h2>
+        <p class="section-desc">
+          搞钱基因测试是一套基于<strong>行为心理学</strong>和<strong>财商理论</strong>打造的深度评估工具。
+          通过分析你在不同情境下的选择偏好，精准识别你独特的搞钱天赋与潜在盲区。
+        </p>
+      </div>
+
+      <!-- 五大维度详解 -->
+      <div class="intro-section">
+        <div class="section-icon">📊</div>
+        <h2 class="section-title">5大维度深度扫描</h2>
+        <p class="section-desc" style="margin-bottom:16px">每个维度代表搞钱能力的一个核心面向</p>
+
+        <div class="intro-dim-cards">
+          <div class="intro-dim-card">
+            <div class="dim-card-icon">🎯</div>
+            <div class="dim-card-body">
+              <h3>风险偏好</h3>
+              <p>你面对不确定机会时的决策倾向，是稳中求胜还是敢赌敢拼？</p>
+            </div>
+          </div>
+          <div class="intro-dim-card">
+            <div class="dim-card-icon">⚡</div>
+            <div class="dim-card-body">
+              <h3>执行力</h3>
+              <p>从想到做的转化效率，决定了你能否真正把机会变成收入</p>
+            </div>
+          </div>
+          <div class="intro-dim-card">
+            <div class="dim-card-icon">🧠</div>
+            <div class="dim-card-body">
+              <h3>认知水平</h3>
+              <p>对商业世界的理解深度，是否具有发现隐藏机会的能力</p>
+            </div>
+          </div>
+          <div class="intro-dim-card">
+            <div class="dim-card-icon">🤝</div>
+            <div class="dim-card-body">
+              <h3>人脉资源</h3>
+              <p>社交网络的广度和变现能力，一个人走得快，一群人走得远</p>
+            </div>
+          </div>
+          <div class="intro-dim-card">
+            <div class="dim-card-icon">💰</div>
+            <div class="dim-card-body">
+              <h3>财务意识</h3>
+              <p>对金钱的敏感度和管理能力，会赚还要会守才能积累财富</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 你将获得 -->
+      <div class="intro-section">
+        <div class="section-icon">🎁</div>
+        <h2 class="section-title">完成测试你将获得</h2>
+        <div class="intro-benefit-list">
+          <div class="benefit-item">
+            <span class="benefit-num">01</span>
+            <div>
+              <strong>专属搞钱人格标签</strong>
+              <p>11种类型精准匹配，找到你的财富人格定位</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">02</span>
+            <div>
+              <strong>五维雷达图分析</strong>
+              <p>直观展示你在五大维度的得分分布与优劣势</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">03</span>
+            <div>
+              <strong>个性化优势解读</strong>
+              <p>深度剖析你的独特优势和潜在发力方向</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-num">04</span>
+            <div>
+              <strong>定制搞钱行动建议</strong>
+              <p>根据你的基因类型，给出最适合你的搞钱路径</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 常见问题 -->
+      <div class="intro-section">
+        <div class="section-icon">❓</div>
+        <h2 class="section-title">常见问题</h2>
+        <div class="intro-faq-list">
+          <div class="faq-item">
+            <h4>Q: 测试需要多长时间？</h4>
+            <p>大约5分钟，共30道情景选择题，无需思考太久，凭直觉作答效果最佳。</p>
+          </div>
+          <div class="faq-item">
+            <h4>Q: 测试结果准确吗？</h4>
+            <p>本测试基于行为偏好分析，选择越真实结果越准。适合作为自我认知的参考工具。</p>
+          </div>
+          <div class="faq-item">
+            <h4>Q: 报告可以保存吗？</h4>
+            <p>可以！测试完成后支持一键导出PDF报告，方便保存和分享。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA区域 -->
+      <div class="intro-cta-area">
+        <button id="startBtn" class="btn-start" onclick="app.startQuiz()">
+          <span>开始测试</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+        <p class="intro-note">已有 <span class="gold-text">12,847</span> 人完成测试</p>
+        <p class="intro-disclaimer">⏱ 预计用时 5 分钟 · 请选择安静环境作答</p>
+      </div>
     </div>
   </section>
 
@@ -222,12 +332,7 @@
       <div class="report-footer">
         <p class="footer-text">— 搞钱基因测试 —</p>
         <p class="footer-sub">本测试仅供娱乐参考，不构成任何投资建议</p>
-        <div class="report-footer-buttons">
-          <button class="btn-export" onclick="app.exportReport()">
-            📥 导出报告图片
-          </button>
-          <button class="btn-restart" onclick="app.restart()">再测一次</button>
-        </div>
+        <button class="btn-restart" onclick="app.restart()">再测一次</button>
       </div>
     </div>
   </section>

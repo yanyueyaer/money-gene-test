@@ -255,7 +255,204 @@ body {
   margin-top: 20px;
   font-size: 13px;
   color: var(--text-muted);
-  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+/* --- 增强版 Intro 样式 --- */
+
+/* Hero区域 */
+.intro-hero {
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 16px;
+}
+
+.hero-dna-icon {
+  font-size: 56px;
+  margin-bottom: 8px;
+  animation: floatDNA 3s ease-in-out infinite;
+}
+
+@keyframes floatDNA {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(5deg);
+  }
+}
+
+/* 通用 Section 样式 */
+.intro-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.section-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.section-desc {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.section-desc strong {
+  color: var(--gold-primary);
+}
+
+/* 维度卡片 */
+.intro-dim-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.intro-dim-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.intro-dim-card:hover {
+  border-color: rgba(255, 215, 0, 0.25);
+  background: rgba(255, 215, 0, 0.04);
+}
+
+.dim-card-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dim-card-body h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold-primary);
+  margin-bottom: 4px;
+}
+
+.dim-card-body p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* 你将获得 */
+.intro-benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: left;
+  padding: 12px 16px;
+  background: rgba(139, 92, 246, 0.06);
+  border: 1px solid rgba(139, 92, 246, 0.12);
+  border-radius: var(--radius-md);
+}
+
+.benefit-num {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--purple-primary);
+  opacity: 0.6;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.benefit-item strong {
+  display: block;
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.benefit-item p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* FAQ */
+.intro-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+  text-align: left;
+}
+
+.faq-item {
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.faq-item h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-secondary);
+  margin-bottom: 6px;
+}
+
+.faq-item p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* CTA 区域 */
+.intro-cta-area {
+  text-align: center;
+  padding: 32px 0 20px;
+}
+
+.intro-disclaimer {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* Intro页面改为自动高度、可滚动 */
+#intro {
+  min-height: auto;
+  padding-bottom: 40px;
+}
+
+.intro-container {
+  max-width: 420px;
+  padding: 0 8px;
 }
 
 /* ============================

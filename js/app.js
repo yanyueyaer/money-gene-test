@@ -252,48 +252,6 @@ class App {
         }, 200);
     }
 
-    // 导出报告为图片
-    async exportReport() {
-        const btn = document.querySelector('.btn-export');
-        const oldText = btn.innerHTML;
-        btn.innerHTML = '⏳ 正在生成...';
-        btn.disabled = true;
-
-        try {
-            const reportContainer = document.querySelector('.report-container');
-
-            const canvas = await html2canvas(reportContainer, {
-                backgroundColor: '#0a0a1a',
-                scale: 2, // 2倍清晰度
-                useCORS: true,
-                logging: false,
-                // 忽略导出按钮和重测按钮
-                ignoreElements: (el) => {
-                    return el.classList.contains('report-footer-buttons');
-                }
-            });
-
-            // 下载图片
-            const link = document.createElement('a');
-            link.download = `搞钱基因测试报告_${new Date().toLocaleDateString('zh-CN')}.png`;
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-
-            btn.innerHTML = '✅ 已保存';
-            setTimeout(() => {
-                btn.innerHTML = oldText;
-                btn.disabled = false;
-            }, 2000);
-        } catch (err) {
-            console.error('Export failed:', err);
-            btn.innerHTML = '❌ 导出失败，请截图保存';
-            setTimeout(() => {
-                btn.innerHTML = oldText;
-                btn.disabled = false;
-            }, 3000);
-        }
-    }
-
     // 重新测试
     restart() {
         this.currentQuestion = 0;
