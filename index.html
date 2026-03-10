@@ -9,12 +9,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+  <!-- ========== 页面0：无效链接提示 ========== -->
+  <section id="codegate" class="page active">
+    <div class="codegate-container">
+      <div class="codegate-icon">🔒</div>
+      <h1 class="codegate-title">
+        <span class="gold-text">搞钱基因</span>
+        <br>深度解码
+      </h1>
+      <p id="gateMessage" class="codegate-subtitle">正在验证链接...</p>
+      <div class="codegate-help">
+        <p>还没有测试链接？</p>
+        <p class="codegate-hint">在小红书搜索「搞钱基因测试」购买获取</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== 页面1：测试介绍 ========== -->
-  <section id="intro" class="page active">
+  <section id="intro" class="page">
     <div class="intro-container">
       <div class="intro-badge">🧬 搞钱基因测试</div>
       <h1 class="intro-title">
@@ -205,7 +222,12 @@
       <div class="report-footer">
         <p class="footer-text">— 搞钱基因测试 —</p>
         <p class="footer-sub">本测试仅供娱乐参考，不构成任何投资建议</p>
-        <button class="btn-restart" onclick="app.restart()">再测一次</button>
+        <div class="report-footer-buttons">
+          <button class="btn-export" onclick="app.exportReport()">
+            📥 导出报告图片
+          </button>
+          <button class="btn-restart" onclick="app.restart()">再测一次</button>
+        </div>
       </div>
     </div>
   </section>

@@ -93,15 +93,25 @@ body {
   width: 200%;
   height: 200%;
   background: radial-gradient(circle at 50% 30%, rgba(255, 215, 0, 0.06) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
   animation: bgFloat 20s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes bgFloat {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(2%, -2%) rotate(1deg); }
-  66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(2%, -2%) rotate(1deg);
+  }
+
+  66% {
+    transform: translate(-1%, 1%) rotate(-0.5deg);
+  }
 }
 
 .intro-container {
@@ -346,8 +356,15 @@ body {
 }
 
 @keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .question-text {
@@ -463,8 +480,15 @@ body {
 }
 
 @keyframes brainPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .pulse-ring {
@@ -481,8 +505,15 @@ body {
 }
 
 @keyframes pulseRing {
-  0% { transform: scale(0.8); opacity: 1; }
-  100% { transform: scale(1.8); opacity: 0; }
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
 }
 
 .loading-title {
@@ -497,11 +528,25 @@ body {
 }
 
 @keyframes dots {
-  0% { content: ''; }
-  25% { content: '.'; }
-  50% { content: '..'; }
-  75% { content: '...'; }
-  100% { content: '....'; }
+  0% {
+    content: '';
+  }
+
+  25% {
+    content: '.';
+  }
+
+  50% {
+    content: '..';
+  }
+
+  75% {
+    content: '...';
+  }
+
+  100% {
+    content: '....';
+  }
 }
 
 .loading-subtitle {
@@ -624,12 +669,29 @@ body {
   animation: fadeInUp 0.5s ease-out both;
 }
 
-.report-card:nth-child(2) { animation-delay: 0.1s; }
-.report-card:nth-child(3) { animation-delay: 0.15s; }
-.report-card:nth-child(4) { animation-delay: 0.2s; }
-.report-card:nth-child(5) { animation-delay: 0.25s; }
-.report-card:nth-child(6) { animation-delay: 0.3s; }
-.report-card:nth-child(7) { animation-delay: 0.35s; }
+.report-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.report-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.report-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.report-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.report-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.report-card:nth-child(7) {
+  animation-delay: 0.35s;
+}
 
 .card-header {
   margin-bottom: 20px;
@@ -817,11 +879,25 @@ body {
   width: 0%;
 }
 
-.dim-progress-fill.risk { background: linear-gradient(90deg, #f59e0b, #ef4444); }
-.dim-progress-fill.execution { background: linear-gradient(90deg, #22c55e, #14b8a6); }
-.dim-progress-fill.cognition { background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
-.dim-progress-fill.network { background: linear-gradient(90deg, #ec4899, #f43f5e); }
-.dim-progress-fill.finance { background: linear-gradient(90deg, #ffd700, #f0c040); }
+.dim-progress-fill.risk {
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+}
+
+.dim-progress-fill.execution {
+  background: linear-gradient(90deg, #22c55e, #14b8a6);
+}
+
+.dim-progress-fill.cognition {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+}
+
+.dim-progress-fill.network {
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
+}
+
+.dim-progress-fill.finance {
+  background: linear-gradient(90deg, #ffd700, #f0c040);
+}
 
 .dim-percent {
   font-size: 12px;
@@ -952,22 +1028,75 @@ body {
   background: rgba(139, 92, 246, 0.1);
 }
 
+.report-footer-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-export {
+  padding: 14px 28px;
+  background: var(--gold-gradient);
+  border: none;
+  border-radius: 50px;
+  color: #1a1a1a;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.btn-export:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.btn-export:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* ============================
    通用动画
    ============================ */
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ============================
@@ -977,24 +1106,24 @@ body {
   .intro-title {
     font-size: 34px;
   }
-  
+
   .stat-number {
     font-size: 28px;
   }
-  
+
   .btn-start {
     padding: 14px 40px;
     font-size: 16px;
   }
-  
+
   .question-text {
     font-size: 18px;
   }
-  
+
   .score-value {
     font-size: 48px;
   }
-  
+
   .radar-chart {
     height: 280px;
   }
@@ -1004,7 +1133,7 @@ body {
   .report-container {
     padding: 0 24px;
   }
-  
+
   .report-card {
     padding: 28px;
   }
@@ -1026,4 +1155,191 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================
+   页面0：兑换码验证
+   ============================ */
+#codegate {
+  background: linear-gradient(180deg, #0a0a1a 0%, #12122e 50%, #1a0a2e 100%);
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+#codegate::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 30%, rgba(255, 215, 0, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 40%);
+  animation: bgFloat 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.codegate-container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.codegate-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.codegate-title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.codegate-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.codegate-input-wrap {
+  margin-bottom: 24px;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.codegate-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  letter-spacing: 4px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.codegate-input::placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  font-family: var(--font-family);
+}
+
+.codegate-input:focus {
+  border-color: var(--gold-primary);
+  background: rgba(255, 215, 0, 0.05);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+}
+
+.codegate-input.success {
+  border-color: var(--success);
+  background: rgba(34, 197, 94, 0.1);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+}
+
+.codegate-input.shake {
+  animation: shake 0.5s ease-in-out;
+  border-color: var(--danger);
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-8px);
+  }
+
+  40% {
+    transform: translateX(8px);
+  }
+
+  60% {
+    transform: translateX(-6px);
+  }
+
+  80% {
+    transform: translateX(6px);
+  }
+}
+
+.codegate-error {
+  font-size: 13px;
+  color: var(--danger);
+  margin-top: 8px;
+  min-height: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.codegate-error.show {
+  opacity: 1;
+}
+
+#codegate .cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 48px;
+  background: var(--gold-gradient);
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  font-family: var(--font-family);
+  width: 100%;
+  max-width: 300px;
+  justify-content: center;
+}
+
+#codegate .cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+}
+
+#codegate .cta-button:active {
+  transform: translateY(0);
+}
+
+#codegate .cta-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.codegate-help {
+  margin-top: 32px;
+  animation: fadeInUp 0.6s ease-out 0.5s both;
+}
+
+.codegate-help p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.codegate-hint {
+  color: var(--gold-secondary) !important;
+  font-weight: 500;
 }

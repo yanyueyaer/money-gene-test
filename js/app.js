@@ -1,13 +1,40 @@
 // 搞钱基因测试 — 主应用逻辑
 import { QUESTIONS, OPTIONS, DIMENSIONS } from './questions.js';
 import { ReportGenerator } from './report.js';
+import { TokenManager } from './codeManager.js';
 
 class App {
     constructor() {
-        this.currentPage = 'intro';
+        this.currentPage = 'codegate';
         this.currentQuestion = 0;
         this.answers = [];
         this.reportGenerator = new ReportGenerator();
+
+        // 自动检测URL中的token并验证
+        this.initTokenValidation();
+    }
+
+    // 自动验证URL token
+    async initTokenValidation() {
+        const token = TokenManager.getTokenFromURL();
+
+        if (!token) {
+            // 没有token参数，显示错误页
+            document.getElementById('gateMessage').textContent = '请通过购买获取的专属链接访问';
+            return;
+        }
+
+        // 验证token
+        const result = await TokenManager.validateToken(token);
+
+        if (result.valid) {
+            // 验证通过，直接进入测试介绍页
+            this.showPage('intro');
+        } else {
+            // 验证失败，显示对应错误
+            const message = TokenManager.getErrorMessage(result.reason);
+            document.getElementById('gateMessage').textContent = message;
+        }
     }
 
     // 页面切换
@@ -223,6 +250,48 @@ class App {
         setTimeout(() => {
             this.reportGenerator.generateReport(this.answers);
         }, 200);
+    }
+
+    // 导出报告为图片
+    async exportReport() {
+        const btn = document.querySelector('.btn-export');
+        const oldText = btn.innerHTML;
+        btn.innerHTML = '⏳ 正在生成...';
+        btn.disabled = true;
+
+        try {
+            const reportContainer = document.querySelector('.report-container');
+
+            const canvas = await html2canvas(reportContainer, {
+                backgroundColor: '#0a0a1a',
+                scale: 2, // 2倍清晰度
+                useCORS: true,
+                logging: false,
+                // 忽略导出按钮和重测按钮
+                ignoreElements: (el) => {
+                    return el.classList.contains('report-footer-buttons');
+                }
+            });
+
+            // 下载图片
+            const link = document.createElement('a');
+            link.download = `搞钱基因测试报告_${new Date().toLocaleDateString('zh-CN')}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+
+            btn.innerHTML = '✅ 已保存';
+            setTimeout(() => {
+                btn.innerHTML = oldText;
+                btn.disabled = false;
+            }, 2000);
+        } catch (err) {
+            console.error('Export failed:', err);
+            btn.innerHTML = '❌ 导出失败，请截图保存';
+            setTimeout(() => {
+                btn.innerHTML = oldText;
+                btn.disabled = false;
+            }, 3000);
+        }
     }
 
     // 重新测试
