@@ -245,6 +245,36 @@ export class ReportGenerator {
         const container = document.getElementById(containerId);
         if (!container) return;
 
+        const total = Object.values(scores).reduce((sum, v) => sum + v, 0);
+
+        // 低分用户：显示成长发力点而非优势
+        if (total < 50) {
+            const growthAreas = [
+                { title: '觉醒意识', desc: '认识到自己的现状是改变的第一步。你已经迈出了这一步！' },
+                { title: '无限成长空间', desc: '每个维度都有大幅提升的潜力，意味着你的进步速度会比别人更快、更明显。' },
+                { title: '白纸优势', desc: '没有固化的思维定式，意味着你可以直接学到最正确的方法，少走弯路。' }
+            ];
+
+            // 更换标题
+            const titleEl = container.closest('.report-section')?.querySelector('.section-header h3');
+            if (titleEl) titleEl.textContent = '你的成长发力点';
+
+            let html = '';
+            growthAreas.forEach((item, i) => {
+                html += `
+      <div class="advantage-item">
+        <div class="advantage-number">${i + 1}</div>
+        <div class="advantage-content">
+          <h4>${item.title}</h4>
+          <p>${item.desc}</p>
+        </div>
+      </div>
+    `;
+            });
+            container.innerHTML = html;
+            return;
+        }
+
         const topDims = this.getTopDimensions(scores, 3);
         let html = '';
         let num = 1;
